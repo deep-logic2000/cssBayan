@@ -142,6 +142,10 @@ input:active ~ label .tab__title--wrapper span {
     animation-timing-function: ease;
   }
 
+  .tab-wrapper:hover .tab__title--wrapper img {
+    transform: rotate(135deg);
+  }
+
   .container:hover .tab__title--wrapper img {
     display: block;
   }
