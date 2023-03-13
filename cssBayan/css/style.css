@@ -1,0 +1,161 @@
+body {
+  background-color: #f5f5eb;
+  color: blue;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.container {
+  width: 80vw;
+  height: 100vh;
+}
+
+.container h1 {
+  color: #000;
+  font-size: 2em;
+  margin: 1em 0 0.5em 0;
+}
+
+.accordion {
+  display: grid;
+}
+
+.tab-wrapper {
+  border-top: 0.07em solid rgb(199, 199, 199);
+  padding: 1em 0;
+}
+
+input {
+  display: none;
+}
+
+.tab__title--wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab__title--wrapper img {
+  width: 0.8em;
+  height: 0.8em;
+  transition: transform 0.5s ease;
+}
+
+.tab-label {
+  display: grid;
+}
+
+.tab-content__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content img {
+  width: 100%;
+  height: auto;
+}
+
+input:checked ~ label .tab-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 50%;
+  margin-top: 3%;
+  animation-name: scaled;
+  animation-duration: 0.6s;
+  animation-timing-function: ease;
+}
+
+input:checked ~ label .tab__title--wrapper img {
+  transform: rotate(135deg);
+}
+
+input:checked ~ label .tab__title--wrapper span {
+  color: #000;
+}
+
+input:active ~ label .tab-content {
+  opacity: 0.5;
+}
+
+input:active ~ label .tab__title--wrapper span {
+  color: blue !important;
+}
+
+@keyframes scaled {
+  0% {
+    width: 45%;
+    opacity: 0.5;
+  }
+  100% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  body {
+    background-color: #e1fce1;
+    font-size: 1.5em;
+  }
+
+  .container h1 {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  body {
+    background-color: #e9e9ff;
+    font-size: 2em;
+  }
+
+  .tab__title--wrapper img {
+    display: none;
+  }
+
+  .container h1 {
+    font-size: 2.5em;
+  }
+}
+
+@media (hover: hover) {
+  .tab-wrapper:hover .tab-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 50%;
+    margin-top: 3%;
+    animation-name: scaled;
+    animation-duration: 0.6s;
+    animation-timing-function: ease;
+  }
+
+  .tab-wrapper:hover .tab__title--wrapper img {
+    transform: rotate(135deg);
+  }
+
+  .container:hover .tab__title--wrapper img {
+    display: block;
+  }
+
+  .container:hover .tab__title--wrapper span {
+    color: #000;
+  }
+
+  .accordion:hover,
+  .tab-label:hover {
+    cursor: pointer;
+  }
+}
